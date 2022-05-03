@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { fontFamily } from '@mui/system';
 
 function Copyright(props) {
   return (
@@ -40,21 +41,23 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" >
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            color: '#570099',
+            fontWeight:'bolder'
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: "22vh 0 1vh 0", bgcolor: '#570099' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            <span style={{fontWeight:"500", fontFamily:"Poppins"}}>Sign in</span>
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -95,9 +98,9 @@ export default function Login() {
                   Forgot password?
                 </Link>
               </Grid>
-              <Grid item>
+              <Grid item style={{marginRight:"4vw"}}>
                 <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Don't have an account?"}
                 </Link>
               </Grid>
             </Grid>
