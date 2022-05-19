@@ -1,0 +1,18 @@
+.table{
+    
+    max-height: 70vh;
+    background-color: rgba(212, 200, 196,1) !important;
+
+
+}
+
+
+.container{
+    margin: 15vh 10vw;
+    height: auto;
+    background-color: rgba(212, 200, 196,0) !important;
+}
+.MuiTableCell-alignRight
+{
+    align-items: left ;
+}

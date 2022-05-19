@@ -8,23 +8,32 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import SearchBar from "material-ui-search-bar";
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650
-  }
-});
+import "./table.css"
+
+
+
 
 const Demo = () => {
-  const classes = useStyles();
+
 
   const originalRows = [
-    { name: "Pizza", calories: 200, fat: 6.0, carbs: 24, protein: 4.0 },
-    { name: "Hot Dog", calories: 300, fat: 6.0, carbs: 24, protein: 4.0 },
-    { name: "Burger", calories: 400, fat: 6.0, carbs: 24, protein: 4.0 },
-    { name: "Hamburger", calories: 500, fat: 6.0, carbs: 24, protein: 4.0 },
-    { name: "Fries", calories: 600, fat: 6.0, carbs: 24, protein: 4.0 },
-    { name: "Ice Cream", calories: 700, fat: 6.0, carbs: 24, protein: 4.0 }
+    { sl:1, name:"Amit" , date:"May 18 2022 15:10:39", foodStatus:true , org:"HRC" },
+    { sl:2, name:"Ayush" , date:"May 18 2022 15:10:39", foodStatus:false, org:"DE SHAW" },
+    { sl:3, name:"Trideep" , date:"May 18 2022 15:10:39", foodStatus:true , org:"STPI" },
+    { sl:4, name:"Rashmi" , date:"May 18 2022 15:10:39", foodStatus:false , org:"Incture" },
+    { sl:5, name:"Prajojita" , date:"May 18 2022 15:10:39", foodStatus:true , org:"Incture" },
+    { sl:6, name:"Shruti" , date:"May 18 2022 15:10:39", foodStatus:false , org:"STPI" },
+    { sl:7, name:"Rajjyoti" , date:"May 18 2022 15:10:39", foodStatus:true , org:"Incture" },
+    { sl:8, name:"Ashish" , date:"May 18 2022 15:10:39", foodStatus:false, org:"Incture" },
+    { sl:9, name:"Anup" , date:"May 18 2022 15:10:39", foodStatus:true , org:"Incture" },
+    { sl:10, name:"Anisha" , date:"May 18 2022 15:10:39", foodStatus:false , org:"Incture" },
+    { sl:11, name:"Silpa" , date:"May 18 2022 15:10:39", foodStatus:true , org:"Incture" },
+    
+    
   ];
 
   const [rows, setRows] = useState(originalRows);
@@ -42,21 +51,38 @@ const Demo = () => {
     requestSearch(searched);
   };
 
+  const handleChange=(sl)=>
+  {
+    const tempRows = rows.map(function(row){
+        if(row.sl===sl){
+          row.foodStatus=!row.foodStatus;
+        }
+        return row;
+
+    })
+
+    setRows(tempRows);
+  }
+
   return (
     <>
-      <Paper>
+    <p>
+    {sessionStorage.getItem("FcEmail")}
+    </p>
+      <Paper className="container">
         <SearchBar
           value={searched}
           onChange={(searchVal) => requestSearch(searchVal)}
           onCancelSearch={() => cancelSearch()}
-        />
-        <TableContainer>
-          <Table className={classes.table} aria-label="simple table">
+         />
+        <TableContainer className="table">
+          <Table  aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Food (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                
+                <TableCell>Name</TableCell>
+                <TableCell >Status</TableCell>
+                <TableCell >Status</TableCell>
+             
                 
               </TableRow>
             </TableHead>
@@ -66,8 +92,18 @@ const Demo = () => {
                   <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
                   
+                  <TableCell >
+                  <FormGroup >
+                          <FormControlLabel control={<Checkbox defaultUnChecked  onClick={() => handleChange(row.sl)} />} />   
+                   </FormGroup>    
+
+
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.foodStatus?"true":"false"}
+                  </TableCell>
+                 
                 </TableRow>
               ))}
             </TableBody>
