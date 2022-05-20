@@ -11,7 +11,7 @@ import SearchBar from "material-ui-search-bar";
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
+import Headerbody from "../../components/header/Headerbody";
 import "./table.css"
 
 
@@ -66,9 +66,11 @@ const Demo = () => {
 
   return (
     <>
+    <Headerbody></Headerbody>
     <p>
     {sessionStorage.getItem("FcEmail")}
     </p>
+    
       <Paper className="container">
         <SearchBar
           value={searched}

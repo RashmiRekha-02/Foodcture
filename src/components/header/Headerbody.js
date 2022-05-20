@@ -1,0 +1,31 @@
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+export default function Headerbody() {
+  return (
+    <Box sx={{  width:"100vw"  }}>
+      <AppBar position="static" sx={{backgroundColor:"#1976d2 !important"}}>
+        <Toolbar>
+          
+          
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Incture Technologies
+          </Typography>
+          <Link to={'/login'}>
+          <Button>
+          <Typography sx={{color:"white"}}>
+          Logout
+          </Typography>
+         
+          </Button> </Link>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}

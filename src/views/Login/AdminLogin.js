@@ -15,8 +15,7 @@ import { useState , useEffect  } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { fontFamily } from '@mui/system';
 import {Link , useNavigate} from "react-router-dom";
-import Header from './../../components/header/Header';
-
+import AdminHeader from '../../components/header/AdminHeader';
 
 
 function Copyright(props) {
@@ -34,7 +33,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login() {
+export default function AdminLogin() {
 
   const navigate = useNavigate();
   //console.log(sessionStorage.getItem("wcEmail"));
@@ -86,7 +85,7 @@ export default function Login() {
       console.log(email)
       if (status === "1") {
                     sessionStorage.setItem("FcEmail", email);
-                    navigate('/cldashboard');
+                    navigate('/dashboard');
                 }
 
 
@@ -121,9 +120,8 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
- <Header></Header>
+    <AdminHeader></AdminHeader>
       <Container component="main" maxWidth="xs" >
-     
         <CssBaseline />
         <Box
           sx={{

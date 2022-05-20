@@ -5,29 +5,57 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import './home.css';
+import { Container } from '@mui/material';
+import Rating from '@mui/material/Rating';
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+
 
 export default function Home() {
+    const [value, setValue] = React.useState(2);
   return (
-    <Card sx={{ maxWidth: 345 }}>
+      <Container>
+    <Card  className="card" sx={{marginTop: "30vh"}}>
       <CardMedia
         component="img"
         height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image="https://t3.ftcdn.net/jpg/01/15/51/04/240_F_115510431_vglxdf45WJZBLjGGanstf5JU6IEuMAR8.jpg"
         alt="green iguana"
+        
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+       DO YOU WANT TO HAVE LUNCH TODAY?
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
+      
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+      <CardActions >
+      <Button variant="contained" className="button">YES</Button>
+      <Button variant="contained" className="button">NO</Button>
       </CardActions>
     </Card>
+    <Card  className="card"  sx={{marginTop: "10vh"}}>
+    
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+       FEEDBACK PLEASE!!
+       <br></br>
+       <InsertEmoticonIcon ></InsertEmoticonIcon>
+       <SentimentVeryDissatisfiedIcon></SentimentVeryDissatisfiedIcon>
+        </Typography>
+      
+      </CardContent>
+      <Rating
+        name="simple-controlled"
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      />
+    </Card>
+    </Container>
+
+
   );
 }
